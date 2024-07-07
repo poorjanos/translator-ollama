@@ -1,8 +1,9 @@
 import ollama
 from pathlib import Path
 import os
+from tqdm import tqdm
 
-input_directory = Path(r"C:\Users\poorj\Projects\translator-ollama\input")
+input_directory = Path(r"C:\Users\poorj\Projects\translator-ollama\input\Pack_0")
 output_directory = Path(r"C:\Users\poorj\Projects\translator-ollama\output")
 
 
@@ -50,7 +51,7 @@ def translate_text(text):
 text_file_list = get_filenames_in_folder(input_directory)
 
 
-for text_file_name in text_file_list:
+for text_file_name in tqdm(text_file_list):
     with open(input_directory / text_file_name, "r", encoding='utf-8') as input_file:
         input_text = input_file.read().replace('\n', '')
         
