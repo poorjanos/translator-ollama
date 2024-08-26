@@ -14,7 +14,7 @@ phrases =["Here is the translated text:",
 def remove_phrase_from_file(file_path, phrase):
     try:
         # Open the file in read mode
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             # Read the content of the file
             content = file.read()
         
@@ -22,7 +22,7 @@ def remove_phrase_from_file(file_path, phrase):
         updated_content = content.replace(phrase, "")
         
         # Open the file in write mode to save the updated content
-        with open(file_path, 'w') as file:
+        with open(file_path, 'w', encoding='utf-8') as file:
             # Write the updated content back to the file
             file.write(updated_content)
         
